@@ -1,6 +1,9 @@
 [package]
-name = "interfaces"
+name = "OrderBook"
 version = "0.1.0"
 edition = "2021"
 
 [dependencies]
+
+[lib]
+path = "OrderBook.rs"
