@@ -1,4 +1,22 @@
 // xionutil.js
+// utils/xionUtil.js
+import XION from "../xion/XION";
+
+export const connectWallet = async (mnemonic) => {
+  await XION.connect(mnemonic);
+};
+
+export const executeLiquidityPoolAction = async (msg) => {
+  return await XION.executeContract(XIONConfig.contractAddress.liquidityPool, msg);
+};
+
+export const executeOrderBookAction = async (msg) => {
+  return await XION.executeContract(XIONConfig.contractAddress.orderBook, msg);
+};
+
+export const executeTradingAction = async (msg) => {
+  return await XION.executeContract(XIONConfig.contractAddress.trading, msg);
+};
 
 const Xion = require('xion'); // Xion paketini içeri aktaralım
 
@@ -90,7 +108,48 @@ async function createAccount(passphrase) {
 }
 
 // Diğer özelleştirilmiş işlevleri ve Xion ağına özgü ayarlamaları burada ekleyebilirsiniz.
-
+// Placeholder utility functions
+export const getPools = async () => {
+    // Fetch pool data from your backend or blockchain
+    return [
+      { id: '1', name: 'Pool 1', tokenPair: 'ETH/DAI', totalLiquidity: '10000' },
+      { id: '2', name: 'Pool 2', tokenPair: 'BTC/USDT', totalLiquidity: '20000' },
+    ];
+  };
+  
+  export const getPoolDetails = async (id) => {
+    // Fetch specific pool details from your backend or blockchain
+    return {
+      id: id,
+      name: `Pool ${id}`,
+      tokenPair: 'ETH/DAI',
+      totalLiquidity: '10000',
+      transactions: [
+        { id: '1', type: 'swap', amount: '100', timestamp: Date.now() },
+        { id: '2', type: 'addLiquidity', amount: '200', timestamp: Date.now() },
+      ],
+    };
+  };
+  
+  export const getUserPortfolio = async (address) => {
+    // Fetch user portfolio data from your backend or blockchain
+    return {
+      address: address,
+      positions: [
+        { id: '1', token: 'ETH', amount: '10', value: '10000' },
+        { id: '2', token: 'DAI', amount: '5000', value: '5000' },
+      ],
+    };
+  };
+  
+  export const getUserTransactions = async (address) => {
+    // Fetch user transactions from your backend or blockchain
+    return [
+      { id: '1', type: 'swap', amount: '100', timestamp: Date.now() },
+      { id: '2', type: 'addLiquidity', amount: '200', timestamp: Date.now() },
+    ];
+  };
+  
 // Modüldeki tüm işlevleri dışa aktaralım
 module.exports = {
     loadContract,

@@ -1,7 +1,6 @@
 // Import necessary libraries and modules
 import { ethers } from 'ethers'; // Replace with your preferred Ethereum library
 import DexContract from './contracts/Dex.json'; // Replace with your DEX contract ABI
-import Web3 from 'web3'; // Replace with your Web3 library if not using ethers
 
 // Initialize Ethereum provider
 const provider = new ethers.providers.JsonRpcProvider('YOUR_ETHEREUM_RPC_URL'); // Replace with actual RPC URL

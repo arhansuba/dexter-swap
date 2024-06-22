@@ -3,6 +3,35 @@
 // Import necessary utilities and packages
 import { XionApp } from 'xion';  // Replace with actual import based on your structure
 import { loadContract, callContractMethod, sendTransaction } from 'xion-utils';  // Replace with actual utility imports
+// xion/XION.js
+import { SigningCosmWasmClient } from "@cosmjs/cosmwasm-stargate";
+import { DirectSecp256k1HdWallet } from "@cosmjs/proto-signing";
+import XIONConfig from "./XIONConfig";
+
+class XION {
+  constructor() {
+    this.client = null;
+    this.wallet = null;
+  }
+
+  async connect(mnemonic) {
+    this.wallet = await DirectSecp256k1HdWallet.fromMnemonic(mnemonic);
+    this.client = await SigningCosmWasmClient.connectWithSigner(
+      XIONConfig.networkUrl,
+      this.wallet
+    );
+  }
+
+  async executeContract(contractAddress, msg, funds = []) {
+    const [account] = await this.wallet.getAccounts();
+    const result = await this.client.execute(account.address, contractAddress, msg, "auto", "", funds);
+    return result;
+  }
+
+  // Add more methods as needed
+}
+
+export default new XION();
 
 // Example usage of XionApp from the demo-app package
 const app = new XionApp();
