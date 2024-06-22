@@ -1,0 +1,54 @@
+/* Reset default browser styling */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  /* Apply default font and styles */
+  body {
+    font-family: 'Helvetica Neue', sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    background-color: #f0f0f0; /* Example background color */
+  }
+  
+  /* Global link styles */
+  a {
+    color: #007bff; /* Example link color */
+    text-decoration: none;
+  }
+  
+  a:hover {
+    text-decoration: underline;
+  }
+  
+  /* Layout container */
+  .container {
+    max-width: 1200px; /* Example max width for content */
+    margin: 0 auto; /* Center align content */
+    padding: 20px; /* Example padding */
+  }
+  
+  /* Header styles */
+  .header {
+    background-color: #ffffff; /* Example header background color */
+    padding: 10px 0; /* Example padding */
+    border-bottom: 1px solid #ccc; /* Example border bottom */
+  }
+  
+  /* Footer styles */
+  .footer {
+    background-color: #333333; /* Example footer background color */
+    color: #ffffff; /* Example text color */
+    padding: 20px 0; /* Example padding */
+    text-align: center; /* Center align text */
+  }
+  
+  /* Responsive design */
+  @media (max-width: 768px) {
+    .container {
+      padding: 10px; /* Adjust padding for smaller screens */
+    }
+  }
+  

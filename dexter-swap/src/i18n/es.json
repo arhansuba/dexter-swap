@@ -1,0 +1,40 @@
+{
+    "header": {
+      "home": "Inicio",
+      "trade": "Comercio",
+      "liquidity": "Liquidez",
+      "about": "Acerca de"
+    },
+    "footer": {
+      "privacyPolicy": "Política de Privacidad",
+      "termsOfService": "Términos de Servicio"
+    },
+    "homePage": {
+      "welcomeMessage": "¡Bienvenido a Dexter Swap!",
+      "intro": "Comercia y cambia criptomonedas con facilidad."
+    },
+    "tradePage": {
+      "title": "Comercio",
+      "selectToken": "Seleccionar un token",
+      "amount": "Cantidad",
+      "swap": "Intercambiar"
+    },
+    "liquidityPage": {
+      "title": "Liquidez",
+      "provideLiquidity": "Proporcionar Liquidez",
+      "token0": "Token 0",
+      "token1": "Token 1",
+      "liquidityPool": "Pool de Liquidez"
+    },
+    "aboutPage": {
+      "title": "Acerca de",
+      "description": "Obtén más información sobre Dexter Swap."
+    },
+    "common": {
+      "learnMore": "Saber más",
+      "back": "Volver",
+      "submit": "Enviar",
+      "cancel": "Cancelar"
+    }
+  }
+  
