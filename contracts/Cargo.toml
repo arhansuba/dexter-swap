@@ -1,15 +1,18 @@
 [workspace]
 members = [
+   "LiquidityPool",
+    "OrderBook",
+    "Trading",
     "interfaces",
     "libraries",
-    "LiquidityPool",
-    "OrderBook",
-    "Trading"
 ]
+
+resolver = "2"
 
 [profile.release]
 opt-level = 3               # Use slightly better optimizations.
 overflow-checks = true     # Disable integer overflow checks.
+
 
 
 [workspace.dependencies]

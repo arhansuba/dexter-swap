@@ -1,0 +1,5 @@
+c3231bfcaaa248bda3c8a762c35f5f778e1e4f319b93eef3882e7a9c6a0fde93  ./target/wasm32-unknown-unknown/release/LiquidityPool.wasm
+c3231bfcaaa248bda3c8a762c35f5f778e1e4f319b93eef3882e7a9c6a0fde93  ./target/wasm32-unknown-unknown/release/OrderBook.wasm
+c3231bfcaaa248bda3c8a762c35f5f778e1e4f319b93eef3882e7a9c6a0fde93  ./target/wasm32-unknown-unknown/release/Trading.wasm
+c3231bfcaaa248bda3c8a762c35f5f778e1e4f319b93eef3882e7a9c6a0fde93  ./target/wasm32-unknown-unknown/release/interfaces.wasm
+c3231bfcaaa248bda3c8a762c35f5f778e1e4f319b93eef3882e7a9c6a0fde93  ./target/wasm32-unknown-unknown/release/libraries.wasm
