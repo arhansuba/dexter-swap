@@ -4,6 +4,11 @@ version = "0.1.0"
 edition = "2021"
 
 [dependencies]
+cosmwasm-std = { version = "=1.4.1", features = ["stargate"] }
+cw-storage-plus = "1.1.0"
+schemars = "0.8.10"
+serde = { version = "1.0.145", default-features = false, features = ["derive"] }
+# Other dependencies specific to LiquidityPool
 
-[lib]
-path = "LiquidityPool.rs"
+
+
