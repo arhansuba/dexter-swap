@@ -3,19 +3,18 @@
 import React, { useState, useEffect } from 'react';
 import { createRoot } from 'react-dom/client';
 import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
-import './index.css'; // Optional: Import your global styles
+import './index.css'; 
 import Header from './components/Header';
 import Footer from './components/Footer';
 import SwapComponent from './components/Swap/SwapComponent';
 import LiquidityComponent from './components/Liquidity/AddLiquidity';
 import {
-  Abstraxion,
   useAbstraxionAccount,
   useAbstraxionSigningClient,
   useModal,
 } from "@burnt-labs/abstraxion";
 import { Button } from "@burnt-labs/ui";
-import "@burnt-labs/ui/dist/index.css";
+//import "@burnt-labs/ui/dist/index.css";
 
 const App = () => {
   const [address, setAddress] = useState("");

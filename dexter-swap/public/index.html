@@ -14,15 +14,31 @@
 
     <!-- Skip the CSP in specified test environments -->
     <% if (!process.env.REACT_APP_SKIP_CSP) { %>
-        <% let cspConfig = require('./csp.json'); %>
-        <!-- Allow vercel feedback in preview environments -->
-        <% if (process.env.REACT_APP_STAGING) { %>
-            <% const cspDevConfig = require('./vercel-csp.json'); %>
-            <% Object.entries(cspDevConfig).forEach(([key, value]) => cspConfig[key] = cspConfig[key].concat(value)) %>
-        <% } %>
+        <% 
+        const fs = require('fs');
+        let cspConfig = {};
+        let cspDevConfig = {};
+
+        if (fs.existsSync('./csp.json')) {
+            cspConfig = require('./csp.json');
+        }
+
+        if (process.env.REACT_APP_STAGING && fs.existsSync('./vercel-csp.json')) {
+            cspDevConfig = require('./vercel-csp.json');
+            Object.entries(cspDevConfig).forEach(([key, value]) => {
+                if (Array.isArray(cspConfig[key])) {
+                    cspConfig[key] = cspConfig[key].concat(value);
+                } else {
+                    cspConfig[key] = value;
+                }
+            });
+        }
+
+        const getCSPValue = (key) => (Array.isArray(cspConfig[key]) ? cspConfig[key].join(' ') : '');
+        %>
         <meta
                 http-equiv="Content-Security-Policy"
-                content="default-src <%= cspConfig.defaultSrc.join(' ') %>; script-src <%= cspConfig.scriptSrc.join(' ') %>; style-src <%= cspConfig.styleSrc.join(' ') %>; img-src <%= cspConfig.imgSrc.join(' ') %>; frame-src <%= cspConfig.frameSrc.join(' ') %>; connect-src <%= cspConfig.connectSrc.join(' ') %>; worker-src <%= cspConfig.workerSrc.join(' ') %>;"
+                content="default-src <%= getCSPValue('defaultSrc') %>; script-src <%= getCSPValue('scriptSrc') %>; style-src <%= getCSPValue('styleSrc') %>; img-src <%= getCSPValue('imgSrc') %>; frame-src <%= getCSPValue('frameSrc') %>; connect-src <%= getCSPValue('connectSrc') %>; worker-src <%= getCSPValue('workerSrc') %>;"
         >
     <% } %>
 
